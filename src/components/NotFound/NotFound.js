@@ -1,4 +1,6 @@
+import { NotFoundBlock } from './NotFound.styled';
+
 const NotFound = () => {
-  return <NotFound>Page not found. Go home</NotFound>;
+  return <NotFoundBlock>Page not found. Try something else ...</NotFoundBlock>;
 };
 export default NotFound;
