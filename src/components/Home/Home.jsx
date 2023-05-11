@@ -9,11 +9,11 @@ const Home = () => {
     const findTrendingMovies = async () => {
       try {
         setIsLoading(true);
-        API.getTrendingMovies().then(res => {
-          setTrendingMovies(res);
-          // console.log(trendingMovies);
-          // console.log(res.total_pages);
-        });
+        const res = await API.getTrendingMovies();
+        setTrendingMovies(res);
+
+        // console.log(trendingMovies);
+        // console.log(res.total_pages);
       } catch (error) {
         console.log(error);
       } finally {
@@ -21,8 +21,8 @@ const Home = () => {
       }
     };
     findTrendingMovies();
-    console.log(trendingMovies);
   }, []);
+
   return (
     <main>
       {isLoading ? (
