@@ -17,8 +17,6 @@ export const Header = styled.header`
 `;
 
 export const Link = styled(NavLink)`
-  /* padding: 8px 16px;
-  border-radius: 4px; */
   display: flex;
   margin: 0.2rem 1rem 0.2rem 0;
   text-decoration: none;

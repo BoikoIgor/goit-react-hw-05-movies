@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Container, Header, Link } from './Layout.styled';
+import { GlobalStyle } from 'components/GlobalStyle';
 // import { Suspense } from 'react';
 
 const Layout = () => {
@@ -11,6 +12,7 @@ const Layout = () => {
           <Link to="/movies">Movies</Link>
         </nav>
       </Header>
+      {/* <GlobalStyle /> */}
       {/* <Suspense fallback={<p>Loading ...</p>}> */}
       <Outlet />
       {/* </Suspense> */}
