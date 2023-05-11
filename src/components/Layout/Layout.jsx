@@ -12,7 +12,7 @@ const Layout = () => {
           <Link to="/movies">Movies</Link>
         </nav>
       </Header>
-      {/* <GlobalStyle /> */}
+      <GlobalStyle />
       {/* <Suspense fallback={<p>Loading ...</p>}> */}
       <Outlet />
       {/* </Suspense> */}
