@@ -21,7 +21,7 @@ const Reviews = () => {
       }
     };
     findMovieReview();
-  }, []);
+  }, [movieId]);
 
   return (
     <>

@@ -22,7 +22,7 @@ const MovieDetails = () => {
       }
     };
     findMovieDetailed();
-  }, []);
+  }, [movieId]);
 
   return (
     <main>
