@@ -10,7 +10,6 @@ const TrendingMoviesList = ({ trendingmovies }) => {
     return;
   }
   const movies = trendingmovies.results ? trendingmovies.results : [];
-  console.log(movies);
   return (
     <section>
       <h1>Trending today</h1>
