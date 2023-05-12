@@ -11,9 +11,6 @@ const Home = () => {
         setIsLoading(true);
         const res = await API.getTrendingMovies();
         setTrendingMovies(res);
-
-        // console.log(trendingMovies);
-        // console.log(res.total_pages);
       } catch (error) {
         console.log(error);
       } finally {
