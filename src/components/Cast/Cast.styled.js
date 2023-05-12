@@ -1,8 +1,8 @@
 import styled from 'styled-components';
+
 export const CastList = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 0.5rem;
   margin: 0.1rem 0;
 

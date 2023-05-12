@@ -54,21 +54,11 @@ const MovieMarkup = ({ movie }) => {
 
         <ul>
           <li>
-            <Link
-              to="cast"
-              // state={{ from: location?.state?.from ?? '/' }} // додаємо параметр from для повернення на попередню сторінку
-            >
-              Cast
-            </Link>
+            <Link to="cast">Cast</Link>
           </li>
 
           <li>
-            <Link
-              to="reviews"
-              // state={{ from: location?.state?.from ?? '/' }}
-            >
-              Reviews
-            </Link>
+            <Link to="reviews">Reviews</Link>
           </li>
         </ul>
       </MovieAddInfo>
