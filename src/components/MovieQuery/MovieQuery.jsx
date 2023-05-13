@@ -1,12 +1,7 @@
-const MovieQuery = ({ movie, onChange, onSubmit }) => {
+const MovieQuery = ({ onSubmit }) => {
   return (
     <form onSubmit={onSubmit}>
-      <input
-        type="text"
-        placeholder="Type here..."
-        // value={movie}
-        onChange={onChange}
-      />
+      <input type="text" placeholder="Type here..." />
       <button type="submit">Search</button>
     </form>
   );
