@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { BsArrowLeftShort } from 'react-icons/bs';
 import * as API from '../../services/api';
 import { useEffect, useState } from 'react';
@@ -8,6 +8,7 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieDetailed, setmovieDetailed] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const findMovieDetailed = async () => {
@@ -26,7 +27,7 @@ const MovieDetails = () => {
 
   return (
     <main>
-      <Link to="/">
+      <Link to={location?.state?.from ?? '/'}>
         <button
           type="button"
           style={{

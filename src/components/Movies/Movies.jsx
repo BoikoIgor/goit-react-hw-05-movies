@@ -29,7 +29,6 @@ const Movies = () => {
     };
     findMovie();
   }, [searchParams]);
-  console.log(movies);
 
   const onSubmit = e => {
     e.preventDefault();
