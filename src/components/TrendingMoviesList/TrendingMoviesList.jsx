@@ -4,6 +4,7 @@ import {
   TitleTrending,
   TrendingList,
 } from './TrendingMoviesList.styled';
+import PropTypes from 'prop-types';
 
 const TrendingMoviesList = ({ trendingmovies }) => {
   if (trendingmovies.length === 0) {
@@ -28,6 +29,19 @@ const TrendingMoviesList = ({ trendingmovies }) => {
       </TrendingList>
     </section>
   );
+};
+
+TrendingMoviesList.propTypes = {
+  trendingMovies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      release_date: PropTypes.string.isRequired,
+      overview: PropTypes.string.isRequired,
+      poster_path: PropTypes.string,
+      vote_average: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 
 export default TrendingMoviesList;

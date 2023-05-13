@@ -5,6 +5,7 @@ import {
   MovieText,
   MovieTitle,
 } from './MovieMarkup.styled';
+import PropTypes from 'prop-types';
 
 const MovieMarkup = ({ movie }) => {
   const { title, release_date, poster_path, vote_average, overview, genres } =
@@ -66,4 +67,18 @@ const MovieMarkup = ({ movie }) => {
     </section>
   );
 };
+
+MovieMarkup.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    release_date: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    vote_average: PropTypes.number,
+    overview: PropTypes.string,
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({ name: PropTypes.string.isRequired })
+    ),
+  }).isRequired,
+};
+
 export default MovieMarkup;

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const MovieQuery = ({ onSubmit }) => {
   return (
     <form onSubmit={onSubmit}>
@@ -6,4 +8,7 @@ const MovieQuery = ({ onSubmit }) => {
     </form>
   );
 };
+
+MovieQuery.propTypes = { onSubmit: PropTypes.func.isRequired };
+
 export default MovieQuery;
