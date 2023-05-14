@@ -18,6 +18,7 @@ const Movies = () => {
           setMovies([]);
           return;
         }
+
         // setIsLoading(true);
         const { results } = await API.getMovieByName(query);
         setMovies(results);
@@ -33,7 +34,7 @@ const Movies = () => {
   const onSubmit = e => {
     e.preventDefault();
     setSearchParams({ query: e.target[0].value });
-    e.target[0].value = '';
+    // e.target[0].value = '';
   };
 
   return (

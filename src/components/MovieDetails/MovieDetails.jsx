@@ -6,7 +6,7 @@ import MovieMarkup from 'components/MovieMarkup/MovieMarkup';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-  const [movieDetailed, setmovieDetailed] = useState([]);
+  const [movieDetailed, setmovieDetailed] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
 
