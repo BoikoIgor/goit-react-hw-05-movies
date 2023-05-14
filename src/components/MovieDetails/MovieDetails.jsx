@@ -1,7 +1,7 @@
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { BsArrowLeftShort } from 'react-icons/bs';
 import * as API from '../../services/api';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import MovieMarkup from 'components/MovieMarkup/MovieMarkup';
 
 const MovieDetails = () => {
@@ -47,7 +47,14 @@ const MovieDetails = () => {
           Go back
         </button>
       </Link>
-      {isLoading ? <p>Loading...</p> : <MovieMarkup movie={movieDetailed} />}
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <MovieMarkup movie={movieDetailed} state={{ from: location }} />
+      )}
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </main>
   );
 };

@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   Movie,
   MovieAddInfo,
@@ -6,16 +6,17 @@ import {
   MovieTitle,
 } from './MovieMarkup.styled';
 import PropTypes from 'prop-types';
-import { Suspense } from 'react';
+// import { Suspense } from 'react';
 
 const MovieMarkup = ({ movie }) => {
   const { title, release_date, poster_path, vote_average, overview, genres } =
     movie;
 
-  // const location = useLocation();
-  // console.log(location);
-  // const goBack = location.state?.from?.from ?? '/';
-  // console.log(goBack);
+  const location = useLocation();
+  console.log(location.state.from);
+  const goBack = location?.state?.from ?? '/';
+  console.log(goBack);
+
   const releaseDate = new Date(release_date);
 
   const releaseYear = isNaN(releaseDate)
@@ -60,27 +61,21 @@ const MovieMarkup = ({ movie }) => {
 
         <ul>
           <li>
-            <Link
-              to="cast"
-              // state={{ from: goBack }}
-            >
+            <Link to="cast" state={{ from: goBack }}>
               Cast
             </Link>
           </li>
 
           <li>
-            <Link
-              to="reviews"
-              // state={{ from: goBack }}
-            >
+            <Link to="reviews" state={{ from: goBack }}>
               Reviews
             </Link>
           </li>
         </ul>
       </MovieAddInfo>
-      <Suspense fallback={<div>Loading...</div>}>
+      {/* <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
-      </Suspense>
+      </Suspense> */}
     </section>
   );
 };
