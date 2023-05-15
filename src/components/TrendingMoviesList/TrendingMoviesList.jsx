@@ -36,12 +36,12 @@ TrendingMoviesList.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
-      release_date: PropTypes.string.isRequired,
+      release_date: PropTypes.string,
       overview: PropTypes.string.isRequired,
       poster_path: PropTypes.string,
       vote_average: PropTypes.number.isRequired,
     })
-  ).isRequired,
+  ),
 };
 
 export default TrendingMoviesList;

@@ -7,20 +7,17 @@ const Movies = () => {
   const [movies, setMovies] = useState([]);
   // const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [value, setValue] = useState(searchParams.get('query') ?? '');
   const location = useLocation();
-  const query = '';
+  const query = searchParams.get('query') ?? '';
 
   useEffect(() => {
-    const query = searchParams.get('query');
+    if (!query) return;
     const findMovie = async () => {
       try {
-        if (!query) {
-          setMovies([]);
-          return;
-        }
-
         // setIsLoading(true);
         const { results } = await API.getMovieByName(query);
+        if (results.length === 0) alert('Movie not found');
         setMovies(results);
       } catch (error) {
         console.log(error);
@@ -29,18 +26,22 @@ const Movies = () => {
       }
     };
     findMovie();
-  }, [searchParams]);
+  }, [query]);
 
   const onSubmit = e => {
     e.preventDefault();
+    if (value === '') {
+      return alert('No value - no movie');
+    }
     setSearchParams({ query: e.target[0].value });
-    // e.target[0].value = '';
+  };
+  const onChange = e => {
+    setValue(e.target.value);
   };
 
   return (
     <main>
-      <h3>Find your movie:</h3>
-      <MovieQuery onSubmit={onSubmit} />
+      <MovieQuery onSubmit={onSubmit} onChange={onChange} value={value} />
       {movies.length > 0 || query ? (
         <ul>
           {movies.map(movie => (

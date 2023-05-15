@@ -13,9 +13,7 @@ const MovieMarkup = ({ movie }) => {
     movie;
 
   const location = useLocation();
-  console.log(location.state.from);
   const goBack = location?.state?.from ?? '/';
-  console.log(goBack);
 
   const releaseDate = new Date(release_date);
 
@@ -82,9 +80,9 @@ const MovieMarkup = ({ movie }) => {
 
 MovieMarkup.propTypes = {
   movie: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    release_date: PropTypes.string.isRequired,
-    poster_path: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    release_date: PropTypes.string,
+    poster_path: PropTypes.string,
     vote_average: PropTypes.number,
     overview: PropTypes.string,
     genres: PropTypes.arrayOf(

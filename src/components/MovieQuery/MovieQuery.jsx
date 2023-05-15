@@ -1,11 +1,19 @@
 import PropTypes from 'prop-types';
 
-const MovieQuery = ({ onSubmit }) => {
+const MovieQuery = ({ onSubmit, onChange, value }) => {
   return (
-    <form onSubmit={onSubmit}>
-      <input type="text" placeholder="Type here..." />
-      <button type="submit">Search</button>
-    </form>
+    <>
+      <h3>Find your movie:</h3>
+      <form onSubmit={onSubmit}>
+        <input
+          type="text"
+          placeholder="Type here..."
+          value={value}
+          onChange={onChange}
+        />
+        <button type="submit">Search</button>
+      </form>
+    </>
   );
 };
 
